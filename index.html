@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Rihla (رحلة) Lounge | Where Taste Meets Emotion</title>
+  <meta name="description" content="A luxury lounge experience combining authentic Afghani flavours with Bangladeshi culinary influences. Grand Opening 7 August, Uttara, Dhaka.">
+  <link rel="icon" type="image/png" href="https://i.ibb.co/4nXE5pjM/Rihla-Logo-no-BG.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: { 50: '#FDF8E8', 100: '#F9EDC4', 200: '#F0D98A', 300: '#E8C547', 400: '#D4AF37', 500: '#C8A951', 600: '#B8942E', 700: '#96751F', 800: '#6B5416', 900: '#3D300D' },
+            dark: { 50: '#2A2A2A', 100: '#1F1F1F', 200: '#1A1A1A', 300: '#151515', 400: '#111111', 500: '#0D0D0D', 600: '#0A0A0A', 700: '#070707',* 800: '#050505', 900: '#030303' }
+          },
+          fontFamily: { display: ['Playfair Display', 'serif'], body: ['DM Sans', 'sans-serif'], arabic: ['Amiri', 'serif'] }
+        }
+      }
+    }
+  </script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent; border-bottom: 1px solid transparent;">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#hero" class="flex items-center group">
+        <div class="w-10 h-10 rounded-full border border-gold-500/50 flex items-center justify-center group-hover:border-gold-400 transition-colors">
+          <span class="font-arabic text-gold-400 text-lg leading-none">رحلة</span>
+        </div>
+        <div class="ml-3">
+          <span class="font-display text-lg font-semibold tracking-wide text-white">The Rihla</span>
+          <span class="block text-[10px] uppercase tracking-[0.2em] text-gold-500/70 -mt-0.5">Lounge</span>
+        </div>
+      </a>
+      <div class="hidden lg:flex items-center gap-8">
+        <a href="#about" class="text-sm text-neutral-400 hover:text-gold-400 transition-colors">About</a>
+        <a href="#signature" class="text-sm text-neutral-400 hover:text-gold-400 transition-colors">Signature</a>
+        <a href="#menu" class="text-sm text-neutral-400 hover:text-gold-400 transition-colors">Menu</a>
+        <a href="#experience" class="text-sm text-neutral-400 hover:text-gold-400 transition-colors">Experience</a>
+        <a href="#location" class="text-sm text-neutral-400 hover:text-gold-400 transition-colors">Find Us</a>
+        <a href="#reservation" class="btn-gold px-6 py-2.5 rounded-full text-sm">Reserve a Table</a>
+      </div>
+      <button id="menuBtn" class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5" aria-label="Menu">
+        <span class="w-6 h-0.5 bg-gold-400 transition-all duration-300" id="bar1"></span>
+        <span class="w-6 h-0.5 bg-gold-400 transition-all duration-300" id="bar2"></span>
+        <span class="w-4 h-0.5 bg-gold-400 transition-all duration-300 ml-auto" id="bar3"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 z-40 backdrop-blur-xl flex flex-col items-center justify-center gap-8">
+    <a href="#about" class="mobile-link text-2xl font-display text-white hover:text-gold-400 transition-colors">About</a>
+    <a href="#signature" class="mobile-link text-2xl font-display text-white hover:text-gold-400 transition-colors">Signature</a>
+    <a href="#menu" class="mobile-link text-2xl font-display text-white hover:text-gold-400 transition-colors">Menu</a>
+    <a href="#experience" class="mobile-link text-2xl font-display text-white hover:text-gold-400 transition-colors">Experience</a>
+    <a href="#location" class="mobile-link text-2xl font-display text-white hover:text-gold-400 transition-colors">Find Us</a>
+    <div class="mt-4"><a href="#reservation" class="mobile-link btn-gold px-8 py-3 rounded-full text-sm">Reserve a Table</a></div>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero" class="bg-section bg-hero min-h-screen flex items-center justify-center arabian-pattern overflow-hidden">
+    <div class="hero-glow absolute inset-0"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gold-500/5 rounded-full blur-[120px]"></div>
+    <div id="particles" class="absolute inset-0 pointer-events-none"></div>
+    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
+      <div class="reveal inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 backdrop-blur-md mb-8">
+        <span class="w-2 h-2 rounded-full bg-gold-400 pulse-dot"></span>
+        <span class="text-xs uppercase tracking-[0.2em] text-gold-400 font-medium">Grand Opening — 7 August</span>
+      </div>
+      <p class="reveal reveal-delay-1 font-arabic text-4xl md:text-5xl text-gold-500/30 mb-4">رحلة</p>
+      <h1 class="reveal reveal-delay-1 font-display text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6">
+        <span class="text-white">The </span><span class="gold-shimmer">Rihla</span>
+        <span class="block text-3xl md:text-4xl lg:text-5xl font-normal text-neutral-400 mt-2 tracking-wide">Lounge</span>
+      </h1>
+      <div class="reveal reveal-delay-2 flex items-center justify-center gap-4 mb-6">
+        <div class="w-16 h-px bg-gradient-to-r from-transparent to-gold-500/50"></div>
+        <span class="iconify text-gold-500/60" data-icon="lucide:sparkles" data-width="16"></span>
+        <div class="w-16 h-px bg-gradient-to-l from-transparent to-gold-500/50"></div>
+      </div>
+      <p class="reveal reveal-delay-2 font-display text-xl md:text-2xl text-gold-300/80 italic mb-3">"Where Taste Meets Emotion"</p>
+      <p class="reveal reveal-delay-3 text-neutral-500 text-sm md:text-base max-w-xl mx-auto mb-10">A delicious journey of authentic Afghani & Bangla fusion flavours, coming to Uttara, Dhaka.</p>
+      <div class="reveal reveal-delay-3 flex items-center justify-center gap-3 md:gap-5 mb-12">
+        <div class="countdown-box rounded-xl px-4 py-3 md:px-6 md:py-4 min-w-[70px] md:min-w-[85px]"><span id="days" class="block text-2xl md:text-3xl font-display font-semibold text-gold-400">--</span><span class="text-[10px] uppercase tracking-widest text-neutral-500">Days</span></div>
+        <span class="text-gold-500/40 text-2xl font-light">:</span>
+        <div class="countdown-box rounded-xl px-4 py-3 md:px-6 md:py-4 min-w-[70px] md:min-w-[85px]"><span id="hours" class="block text-2xl md:text-3xl font-display font-semibold text-gold-400">--</span><span class="text-[10px] uppercase tracking-widest text-neutral-500">Hours</span></div>
+        <span class="text-gold-500/40 text-2xl font-light">:</span>
+        <div class="countdown-box rounded-xl px-4 py-3 md:px-6 md:py-4 min-w-[70px] md:min-w-[85px]"><span id="minutes" class="block text-2xl md:text-3xl font-display font-semibold text-gold-400">--</span><span class="text-[10px] uppercase tracking-widest text-neutral-500">Mins</span></div>
+        <span class="text-gold-500/40 text-2xl font-light">:</span>
+        <div class="countdown-box rounded-xl px-4 py-3 md:px-6 md:py-4 min-w-[70px] md:min-w-[85px]"><span id="seconds" class="block text-2xl md:text-3xl font-display font-semibold text-gold-400">--</span><span class="text-[10px] uppercase tracking-widest text-neutral-500">Secs</span></div>
+      </div>
+      <div class="reveal reveal-delay-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#reservation" class="btn-gold px-8 py-3.5 rounded-full text-sm tracking-wide">Reserve Your Table</a>
+        <a href="#menu" class="btn-outline-gold px-8 py-3.5 rounded-full text-sm tracking-wide">Explore Menu</a>
+      </div>
+    </div>
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce">
+      <span class="text-[10px] uppercase tracking-widest text-neutral-600">Scroll</span>
+      <span class="iconify text-gold-500/40" data-icon="lucide:chevron-down" data-width="18"></span>
+    </div>
+  </section>
+
+  <!-- IMAGE DIVIDER 1 -->
+  <div class="img-divider">
+    <img src="https://picsum.photos/seed/smoky-charcoal-grill-meat/1920/400.jpg" alt="Grill" loading="lazy">
+    <div class="absolute inset-0 z-10 flex items-center justify-center">
+      <p class="reveal font-display text-lg md:text-2xl text-white/80 italic tracking-wide">"Something Delicious, Something Special, Something Memorable"</p>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about" class="bg-section bg-about py-24 md:py-32">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div class="reveal img-overlay rounded-2xl">
+          <img src="https://picsum.photos/seed/rihla-luxury-ambience-gold/700/900.jpg" alt="The Rihla Lounge Ambience" class="w-full h-[400px] md:h-[550px] object-cover rounded-2xl">
+          <div class="absolute bottom-6 left-6 z-10"><span class="inline-block px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs uppercase tracking-widest backdrop-blur-md">Est. 2025</span></div>
+        </div>
+        <div>
+          <div class="reveal"><span class="text-xs uppercase tracking-[0.25em] text-gold-500/70 font-medium">Our Story</span><div class="w-12 h-0.5 bg-gold-500/40 mt-3 mb-6"></div></div>
+          <h2 class="reveal reveal-delay-1 font-display text-3xl md:text-5xl font-semibold leading-tight mb-6">A Journey of<br><span class="gold-shimmer">Flavours & Emotions</span></h2>
+          <div class="reveal reveal-delay-2 space-y-4 text-neutral-400 text-sm md:text-base leading-relaxed">
+            <p><span class="font-arabic text-gold-400 text-lg">رحلة</span> — meaning <em>"Journey"</em> in Arabic — is more than a name. It's a promise. The Rihla Lounge invites you on a culinary journey where every dish tells a story, every flavour stirs an emotion, and every visit becomes a cherished memory.</p>
+            <p>Born from a passion for authentic Afghani cuisine and a deep love for Bangladeshi culinary heritage, The Rihla Lounge creates a unique fusion experience you won't find anywhere else in Dhaka.</p>
+            <p>With elegant Arabian-inspired interiors, warm lighting, and premium hospitality, we've crafted a space that feels both luxurious and welcoming.</p>
+          </div>
+          <div class="reveal reveal-delay-3 grid grid-cols-3 gap-6 mt-10 pt-10 border-t border-white/5">
+            <div><span class="block text-2xl md:text-3xl font-display font-semibold text-gold-400">100+</span><span class="text-xs text-neutral-500 uppercase tracking-wider">Dishes</span></div>
+            <div><span class="block text-2xl md:text-3xl font-display font-semibold text-gold-400">100+</span><span class="text-xs text-neutral-500 uppercase tracking-wider">Seats</span></div>
+            <div><span class="block text-2xl md:text-3xl font-display font-semibold text-gold-400">∞</span><span class="text-xs text-neutral-500 uppercase tracking-wider">Memories</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE DIVIDER 2 -->
+  <div class="img-divider">
+    <img src="https://picsum.photos/seed/arabic-spices-saffron-golden/1920/400.jpg" alt="Spices" loading="lazy">
+  </div>
+
+  <!-- SIGNATURE DISH -->
+  <section id="signature" class="bg-section bg-signature py-24 md:py-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="max-w-xl">
+        <div class="reveal"><span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/20 bg-gold-500/10 backdrop-blur-md mb-6"><span class="iconify text-gold-400" data-icon="lucide:crown" data-width="13"></span><span class="text-[10px] uppercase tracking-[0.2em] text-gold-400 font-medium">The Rihla Signature Dish</span></span></div>
+        <h2 class="reveal reveal-delay-1 font-display text-3xl md:text-5xl font-semibold leading-tight mb-1">Afghani<br><span class="gold-shimmer">Kabuli Polao</span></h2>
+        <p class="reveal reveal-delay-1 font-arabic text-2xl md:text-3xl text-gold-500/40 mb-5">আফগানি কাবুলি পোলাও</p>
+        <p class="reveal reveal-delay-2 font-display text-lg text-gold-400/70 italic mb-2">"A Journey Beyond Food"</p>
+        <p class="reveal reveal-delay-2 text-warm-400/80 text-sm mb-6">"একবার খেলে বারবার খেতে ইচ্ছে করবে!"</p>
+        <div class="reveal reveal-delay-2 space-y-4 text-neutral-400 text-sm md:text-base leading-relaxed mb-8">
+          <p>Afghanistan's national traditional dish — a masterpiece of aromatic Basmati rice layered with tender meat, sweet carrots, plump raisins, crunchy almonds, and a special blend of traditional Afghani spices.</p>
+          <p class="text-neutral-500 text-sm leading-relaxed">আফগানিস্তানের জাতীয় ঐতিহ্যবাহী খাবার কাবুলি পোলাও। সুগন্ধি বাসমতি চাল, নরম মাংস, গাজর, কিসমিস, বাদাম ও বিশেষ মসলার পারফেক্ট মিশেলে তৈরি এই পোলাওয়ের স্বাদ একে করে তুলে অনন্য।</p>
+        </div>
+        <div class="reveal reveal-delay-3 flex flex-wrap gap-3">
+          <span class="px-4 py-1.5 rounded-full border border-gold-500/15 bg-gold-500/5 text-gold-400/80 text-xs">Basmati Rice</span>
+          <span class="px-4 py-1.5 rounded-full border border-gold-500/15 bg-gold-500/5 text-gold-400/80 text-xs">Tender Meat</span>
+          <span class="px-4 py-1.5 rounded-full border border-gold-500/15 bg-gold-500/5 text-gold-400/80 text-xs">Carrots & Raisins</span>
+          <span class="px-4 py-1.5 rounded-full border border-gold-500/15 bg-gold-500/5 text-gold-400/80 text-xs">Almonds</span>
+          <span class="px-4 py-1.5 rounded-full border border-gold-500/15 bg-gold-500/5 text-gold-400/80 text-xs">Special Spices</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section id="menu" class="relative py-24 md:py-32">
+    <div class="absolute inset-0 arabian-pattern"></div>
+    <div class="relative z-10 max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="reveal text-xs uppercase tracking-[0.25em] text-gold-500/70 font-medium">Our Menu</span>
+        <div class="reveal reveal-delay-1 ornament-divider max-w-xs mx-auto mt-4 mb-6"><span class="iconify text-gold-500/50" data-icon="lucide:utensils" data-width="16"></span></div>
+        <h2 class="reveal reveal-delay-1 font-display text-3xl md:text-5xl font-semibold mb-4">A Curated <span class="gold-shimmer">Culinary Journey</span></h2>
+        <p class="reveal reveal-delay-2 text-neutral-500 text-sm md:text-base max-w-xl mx-auto mb-10">From sizzling grills to aromatic rice, every dish is crafted to take your taste buds on an unforgettable ride.</p>
+      </div>
+      <div class="reveal reveal-delay-2 flex flex-wrap justify-center gap-2 mb-10" id="menuTabs"></div>
+      <div id="menuContent" class="bg-dark-300/30 backdrop-blur-sm border border-white/5 rounded-2xl p-6 md:p-10"></div>
+      <p class="reveal text-center text-neutral-700 text-xs mt-6 tracking-wide">Note: All prices are in BDT (৳) and are subject to applicable VAT & Service Charge.</p>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="relative py-24 md:py-32 overflow-hidden">
+    <div class="absolute inset-0 section-glow-left"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="reveal text-xs uppercase tracking-[0.25em] text-gold-500/70 font-medium">The Experience</span>
+        <div class="reveal reveal-delay-1 ornament-divider max-w-xs mx-auto mt-4 mb-6"><span class="iconify text-gold-500/50" data-icon="lucide:gem" data-width="16"></span></div>
+        <h2 class="reveal reveal-delay-1 font-display text-3xl md:text-5xl font-semibold mb-4">More Than <span class="gold-shimmer">Dining</span></h2>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="reveal img-overlay rounded-2xl group cursor-pointer">
+          <img src="https://picsum.photos/seed/luxury-dining-dark-warm/500/650.jpg" alt="Luxury Ambience" class="w-full h-[350px] md:h-[420px] object-cover rounded-2xl">
+          <div class="absolute bottom-6 left-6 right-6 z-10"><span class="block text-[10px] uppercase tracking-widest text-gold-400/70 mb-1">Ambience</span><h3 class="font-display text-xl font-semibold text-white">Arabian-Inspired Luxury</h3><p class="text-neutral-400 text-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Elegant interiors with warm lighting and premium finishes.</p></div>
+        </div>
+        <div class="reveal reveal-delay-1 img-overlay rounded-2xl group cursor-pointer">
+          <img src="https://picsum.photos/seed/family-dinner-elegant-gold/500/650.jpg" alt="Family Dining" class="w-full h-[350px] md:h-[420px] object-cover rounded-2xl">
+          <div class="absolute bottom-6 left-6 right-6 z-10"><span class="block text-[10px] uppercase tracking-widest text-gold-400/70 mb-1">Community</span><h3 class="font-display text-xl font-semibold text-white">Family-Friendly Space</h3><p class="text-neutral-400 text-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Comfortable seating designed for families and gatherings.</p></div>
+        </div>
+        <div class="reveal reveal-delay-2 img-overlay rounded-2xl group cursor-pointer">
+          <img src="https://picsum.photos/seed/premium-food-plating-dark/500/650.jpg" alt="Premium Presentation" class="w-full h-[350px] md:h-[420px] object-cover rounded-2xl">
+          <div class="absolute bottom-6 left-6 right-6 z-10"><span class="block text-[10px] uppercase tracking-widest text-gold-400/70 mb-1">Presentation</span><h3 class="font-display text-xl font-semibold text-white">Premium Plating</h3><p class="text-neutral-400 text-sm mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">Every dish is a work of art, crafted with care and precision.</p></div>
+        </div>
+      </div>
+      <div class="reveal flex flex-wrap justify-center gap-3 mt-12">
+        <span class="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/5 bg-white/[0.02] text-neutral-400 text-xs"><span class="iconify text-gold-500/60" data-icon="lucide:users" data-width="14"></span> Families Welcome</span>
+        <span class="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/5 bg-white/[0.02] text-neutral-400 text-xs"><span class="iconify text-gold-500/60" data-icon="lucide:briefcase" data-width="14"></span> Corporate Dinners</span>
+        <span class="flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/5 bg-white/[0.02] text-neutral-400 text-xs"><span class="iconify text-gold-500/60" data-icon="lucide:wind" data-width="14"></span> Smoke-Free</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGE DIVIDER 3 -->
+  <div class="img-divider">
+    <img src="https://picsum.photos/seed/dark-cocktail-mocktail-bar/1920/400.jpg" alt="Beverages" loading="lazy">
+  </div>
+
+  <!-- LOCATION -->
+  <section id="location" class="relative py-24 md:py-32">
+    <div class="absolute inset-0 section-glow-right"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16">
+        <div>
+          <div class="reveal"><span class="text-xs uppercase tracking-[0.25em] text-gold-500/70 font-medium">Find Us</span><div class="w-12 h-0.5 bg-gold-500/40 mt-3 mb-6"></div></div>
+          <h2 class="reveal reveal-delay-1 font-display text-3xl md:text-5xl font-semibold leading-tight mb-8">Visit <span class="gold-shimmer">Rihla</span></h2>
+          <div class="reveal reveal-delay-2 space-y-6">
+            <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-gold-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-400" data-icon="lucide:map-pin" data-width="18"></span></div><div><h4 class="text-sm font-semibold text-white mb-1">Address</h4><p class="text-neutral-400 text-sm leading-relaxed">6th Avenue, Plot-20<br>Uttara Sector 17, Dhaka</p></div></div>
+            <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-gold-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-400" data-icon="lucide:clock" data-width="18"></span></div><div><h4 class="text-sm font-semibold text-white mb-1">Opening Hours</h4><p class="text-neutral-400 text-sm">12:00 PM – 2:00 AM</p></div></div>
+            <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-gold-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-400" data-icon="lucide:calendar" data-width="18"></span></div><div><h4 class="text-sm font-semibold text-white mb-1">Grand Opening</h4><p class="text-gold-400 text-sm font-medium">7 August</p></div></div>
+          </div>
+          <div class="reveal reveal-delay-3 mt-10 pt-8 border-t border-white/5">
+            <p class="text-xs uppercase tracking-widest text-neutral-600 mb-4">Follow Our Journey</p>
+            <div class="flex items-center gap-3">
+              <a href="#" class="w-10 h-10 rounded-xl border border-white/5 bg-white/[0.02] flex items-center justify-center hover:border-gold-500/30 transition-all"><span class="iconify text-neutral-400" data-icon="lucide:facebook" data-width="18"></span></a>
+              <a href="#" class="w-10 h-10 rounded-xl border border-white/5 bg-white/[0.02] flex items-center justify-center hover:border-gold-500/30 transition-all"><span class="iconify text-neutral-400" data-icon="lucide:instagram" data-width="18"></span></a>
+              <a href="#" class="w-10 h-10 rounded-xl border border-white/5 bg-white/[0.02] flex items-center justify-center hover:border-gold-500/30 transition-all"><span class="iconify text-neutral-400" data-icon="simple-icons:tiktok" data-width="16"></span></a>
+              <a href="#" class="w-10 h-10 rounded-xl border border-white/5 bg-white/[0.02] flex items-center justify-center hover:border-gold-500/30 transition-all"><span class="iconify text-neutral-400" data-icon="lucide:youtube" data-width="18"></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="reveal reveal-delay-1 rounded-2xl overflow-hidden border border-white/5 h-full min-h-[400px]">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.5!2d90.38!3d23.86!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sUttara+Sector+17+Dhaka!5e0!3m2!1sen!2sbd!4v1" width="100%" height="100%" style="border:0; min-height:400px; filter: grayscale(0.8) brightness(0.4) contrast(1.2);" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVATION -->
+  <section id="reservation" class="bg-section bg-reservation py-24 md:py-32 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-dark-600/80 via-dark-600/60 to-dark-600/80"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-gold-500/5 rounded-full blur-[100px]"></div>
+    <div class="relative z-10 max-w-2xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <span class="reveal text-xs uppercase tracking-[0.25em] text-gold-500/70 font-medium">Reservations</span>
+        <div class="reveal reveal-delay-1 ornament-divider max-w-xs mx-auto mt-4 mb-6"><span class="iconify text-gold-500/50" data-icon="lucide:calendar-check" data-width="16"></span></div>
+        <h2 class="reveal reveal-delay-1 font-display text-3xl md:text-5xl font-semibold mb-4">Reserve Your <span class="gold-shimmer">Table</span></h2>
+      </div>
+      <form id="reservationForm" class="reveal reveal-delay-2 space-y-5" action="https://formspree.io/f/mrenaqbj" method="POST">
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div><label class="block text-xs uppercase tracking-widest text-neutral-500 mb-2">Full Name</label><input type="text" name="name" required placeholder="Your name" class="w-full px-4 py-3.5 rounded-xl text-sm placeholder-neutral-700 focus:outline-none focus:border-gold-500/40 transition-all"></div>
+          <div><label class="block text-xs uppercase tracking-widest text-neutral-500 mb-2">Phone</label><input type="tel" name="phone" required placeholder="+880 1XXX-XXXXXX" class="w-full px-4 py-3.5 rounded-xl text-sm placeholder-neutral-700 focus:outline-none focus:border-gold-500/40 transition-all"></div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div><label class="block text-xs uppercase tracking-widest text-neutral-500 mb-2">Date</label><input type="date" name="date" required class="w-full px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-gold-500/40 transition-all [color-scheme:dark]"></div>
+          <div><label class="block text-xs uppercase tracking-widest text-neutral-500 mb-2">Time</label><select name="time" required class="w-full px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-gold-500/40 transition-all [color-scheme:dark] appearance-none cursor-pointer"><option value="" disabled selected>Select time</option><option value="12:00" class="bg-dark-400">12:00 PM</option><option value="13:00" class="bg-dark-400">1:00 PM</option><option value="18:00" class="bg-dark-400">6:00 PM</option><option value="19:00" class="bg-dark-400">7:00 PM</option><option value="20:00" class="bg-dark-400">8:00 PM</option><option value="21:00" class="bg-dark-400">9:00 PM</option><option value="22:00" class="bg-dark-400">10:00 PM</option></select></div>
+        </div>
+        <div class="grid sm:grid-cols-2 gap-5">
+          <div><label class="block text-xs uppercase tracking-widest text-neutral-500 mb-2">Guests</label><select name="guests" required class="w-full px-4 py-3.5 rounded-xl text-sm focus:outline-none focus:border-gold-500/40 transition-all [color-scheme:dark] appearance-none cursor-pointer"><option value="" disabled selected>Number of guests</option><option value="2" class="bg-dark-400">2 Guests</option><option value="3" class="bg-dark-400">3 Guests</option><option value="4" class="bg-dark-400">4 Guests</option><option value="5" class="bg-dark-400">5 Guests</option><option value="6" class="bg-dark-400">6 Guests</option><option value="7-10" class="bg-dark-400">7–10 Guests</option><option value="10+" class="bg-dark-400">10+ Guests</option></select></div>
+          <div><label class="block text-xs uppercase tracking-widest text-neutral-500 mb-2">Email (Optional)</label><input type="email" name="email" placeholder="your@email.com" class="w-full px-4 py-3.5 rounded-xl text-sm placeholder-neutral-700 focus:outline-none focus:border-gold-500/40 transition-all"></div>
+        </div>
+        <div><label class="block text-xs uppercase tracking-widest text-neutral-500 mb-2">Special Requests</label><textarea name="message" rows="3" placeholder="Any special requirements..." class="w-full px-4 py-3.5 rounded-xl text-sm placeholder-neutral-700 focus:outline-none focus:border-gold-500/40 transition-all resize-none"></textarea></div>
+        <button type="submit" class="btn-gold w-full py-4 rounded-xl text-sm tracking-wide flex items-center justify-center gap-2"><span class="iconify" data-icon="lucide:send" data-width="16"></span> Submit Reservation</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="relative border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 py-16">
+      <div class="grid md:grid-cols-3 gap-12">
+        <div>
+          <div class="flex items-center gap-3 mb-5"><div class="w-10 h-10 rounded-full border border-gold-500/50 flex items-center justify-center"><span class="font-arabic text-gold-400 text-lg leading-none">رحلة</span></div><div><span class="font-display text-lg font-semibold text-white">The Rihla</span><span class="block text-[10px] uppercase tracking-[0.2em] text-gold-500/70 -mt-0.5">Lounge</span></div></div>
+          <p class="text-neutral-500 text-sm leading-relaxed mb-6">A premium dining lounge where authentic Afghani flavours meet Bangladeshi soul. A culinary journey of taste, emotion, and unforgettable memories.</p>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase tracking-[0.2em] text-neutral-500 font-medium mb-5">Quick Links</h4>
+          <ul class="space-y-3">
+            <li><a href="#about" class="text-sm text-neutral-400 hover:text-gold-400 transition-colors">About Rihla</a></li>
+            <li><a href="#signature" class="text-sm text-neutral-400 hover:text-gold-400 transition-colors">Signature Dish</a></li>
+            <li><a href="#menu" class="text-sm text-neutral-400 hover:text-gold-400 transition-colors">Our Menu</a></li>
+            <li><a href="#experience" class="text-sm text-neutral-400 hover:text-gold-400 transition-colors">The Experience</a></li>
+            <li><a href="#reservation" class="text-sm text-neutral-400 hover:text-gold-400 transition-colors">Reservations</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="text-xs uppercase tracking-[0.2em] text-neutral-500 font-medium mb-5">Contact</h4>
+          <ul class="space-y-4">
+            <li class="flex items-start gap-3"><span class="iconify text-gold-500/50 mt-0.5 flex-shrink-0" data-icon="lucide:map-pin" data-width="15"></span><span class="text-sm text-neutral-400">6th Avenue, Plot-20, Uttara Sector 17, Dhaka</span></li>
+            <li class="flex items-start gap-3"><span class="iconify text-gold-500/50 mt-0.5 flex-shrink-0" data-icon="lucide:clock" data-width="15"></span><span class="text-sm text-neutral-400">12:00 PM – 2:00 AM</span></li>
+            <li class="flex items-start gap-3"><span class="iconify text-gold-500/50 mt-0.5 flex-shrink-0" data-icon="lucide:calendar" data-width="15"></span><span class="text-sm text-neutral-400">Grand Opening: 7 August</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="gold-line mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-neutral-700 text-xs">&copy; 2025 The Rihla Lounge. All rights reserved.</p>
+        <p class="text-neutral-800 text-[11px] font-arabic">رحلة — حيث يلتقي الطعم بالعاطفة</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast fixed bottom-6 right-6 z-50 rounded-xl px-6 py-4 shadow-2xl flex items-center gap-3 max-w-sm">
+    <div class="w-8 h-8 rounded-full bg-gold-500/20 flex items-center justify-center flex-shrink-0"><span class="iconify text-gold-400" data-icon="lucide:check" data-width="16"></span></div>
+    <div><p class="text-sm font-medium">Reservation Submitted!</p><p class="text-xs text-neutral-500">We'll contact you shortly to confirm.</p></div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script src="main.js"></script>
+</body>
+</html>

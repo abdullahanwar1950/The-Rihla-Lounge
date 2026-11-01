@@ -1,0 +1,62 @@
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background-color: #0A0A0A; color: #F3F4F6; overflow-x: hidden; }
+    .gold-shimmer { background: linear-gradient(110deg, #D4AF37 0%, #F0D98A 25%, #D4AF37 50%, #F0D98A 75%, #D4AF37 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: shimmer 4s linear infinite; }
+    @keyframes shimmer { to { background-position: 200% center; } }
+    .gold-line { height: 1px; background: linear-gradient(90deg, transparent, #C8A951, transparent); }
+    .arabian-pattern { background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0L60 30L30 60L0 30Z' fill='none' stroke='%23C8A951' stroke-width='0.3' opacity='0.08'/%3E%3C/svg%3E"); }
+    .particle { position: absolute; width: 3px; height: 3px; background: #C8A951; border-radius: 50%; opacity: 0; animation: float-particle 6s ease-in-out infinite; }
+    @keyframes float-particle { 0% { opacity: 0; transform: translateY(0) scale(0); } 20% { opacity: 0.6; } 80% { opacity: 0.3; } 100% { opacity: 0; transform: translateY(-200px) scale(1); } }
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; } .reveal-delay-2 { transition-delay: 0.2s; } .reveal-delay-3 { transition-delay: 0.3s; } .reveal-delay-4 { transition-delay: 0.4s; }
+    .nav-scrolled { background: rgba(10, 10, 10, 0.96) !important; backdrop-filter: blur(20px) !important; border-bottom: 1px solid rgba(200, 169, 81, 0.15) !important; box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+    .countdown-box { background: rgba(200, 169, 81, 0.06); border: 1px solid rgba(200, 169, 81, 0.2); backdrop-filter: blur(10px); }
+    .hero-glow { background: radial-gradient(ellipse at center, rgba(200, 169, 81, 0.12) 0%, transparent 70%); }
+    .section-glow-left { background: radial-gradient(ellipse at left, rgba(200, 169, 81, 0.06) 0%, transparent 60%); }
+    .section-glow-right { background: radial-gradient(ellipse at right, rgba(200, 169, 81, 0.06) 0%, transparent 60%); }
+    .img-overlay { position: relative; overflow: hidden; }
+    .img-overlay::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.9) 0%, rgba(10,10,10,0.3) 40%, transparent 100%); }
+    .img-overlay img { transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+    .img-overlay:hover img { transform: scale(1.05); }
+    .btn-gold { background: linear-gradient(135deg, #C8A951, #D4AF37, #E8C547); color: #0A0A0A; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(200, 169, 81, 0.4); }
+    .btn-gold:hover { box-shadow: 0 6px 30px rgba(200, 169, 81, 0.6); transform: translateY(-2px); }
+    .btn-outline-gold { border: 1px solid rgba(200, 169, 81, 0.5); color: #C8A951; transition: all 0.3s ease; }
+    .btn-outline-gold:hover { background: rgba(200, 169, 81, 0.1); border-color: #C8A951; }
+    ::-webkit-scrollbar { width: 6px; } ::-webkit-scrollbar-track { background: #0A0A0A; } ::-webkit-scrollbar-thumb { background: #C8A951; border-radius: 3px; }
+    .mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); background: rgba(10, 10, 10, 0.98); }
+    .mobile-menu.open { transform: translateX(0); }
+    .ornament-divider { display: flex; align-items: center; gap: 16px; }
+    .ornament-divider::before, .ornament-divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(200,169,81,0.4), transparent); }
+    .toast { transform: translateY(100px); opacity: 0; transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); background: rgba(20, 20, 20, 0.95); border: 1px solid rgba(200, 169, 81, 0.2); }
+    .toast.show { transform: translateY(0); opacity: 1; }
+    .pulse-dot { animation: pulse-dot 2s ease-in-out infinite; }
+    @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(1.5); } }
+    .menu-tab { transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.05); color: #9CA3AF; background: transparent; }
+    .menu-tab:hover { color: #F3F4F6; border-color: rgba(200, 169, 81, 0.3); }
+    .menu-tab.active { background: rgba(200, 169, 81, 0.15); color: #D4AF37; border-color: rgba(200, 169, 81, 0.4); }
+    .menu-item-row { transition: background 0.2s ease; border-bottom-color: rgba(255,255,255,0.05); }
+    .menu-item-row:hover { background: rgba(200, 169, 81, 0.03); }
+    .expand-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .expand-content.open { max-height: 500px; }
+    .expand-btn i { transition: transform 0.3s ease; }
+    .expand-btn.active i { transform: rotate(180deg); }
+    .bg-section { position: relative; overflow: hidden; }
+    .bg-section::before { content: ''; position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 0; }
+    .bg-section::after { content: ''; position: absolute; inset: 0; z-index: 1; }
+    .bg-section > * { position: relative; z-index: 2; }
+    .bg-hero::before { background-image: url('https://picsum.photos/seed/luxury-dark-lounge-interior/1920/1080.jpg'); }
+    .bg-hero::after { background: linear-gradient(to bottom, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.5) 40%, rgba(10,10,10,0.8) 100%); }
+    .bg-about::before { background-image: url('https://picsum.photos/seed/elegant-moody-restaurant/1920/1080.jpg'); background-attachment: fixed; }
+    .bg-about::after { background: linear-gradient(135deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.85) 50%, rgba(10,10,10,0.92) 100%); }
+    .bg-signature::before { background-image: url('https://picsum.photos/seed/aromatic-golden-rice-platter/1920/1080.jpg'); background-attachment: fixed; }
+    .bg-signature::after { background: linear-gradient(to right, rgba(10,10,10,0.95) 0%, rgba(10,10,10,0.7) 50%, rgba(10,10,10,0.4) 100%); }
+    .bg-reservation::before { background-image: url('https://picsum.photos/seed/candle-dark-elegant-table/1920/1080.jpg'); background-attachment: fixed; }
+    .bg-reservation::after { background: linear-gradient(to bottom, rgba(10,10,10,0.93) 0%, rgba(10,10,10,0.88) 50%, rgba(10,10,10,0.95) 100%); }
+    .img-divider { position: relative; height: 200px; overflow: hidden; }
+    .img-divider img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.4) contrast(1.1) saturate(0.8); }
+    .img-divider::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10,10,10,1) 0%, transparent 30%, transparent 70%, rgba(10,10,10,1) 100%); }
+    input, select, textarea { background: rgba(20, 20, 20, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); color: #F3F4F6; }
+    input:focus, select:focus, textarea:focus { border-color: #C8A951; background: rgba(20, 20, 20, 0.7); outline: none; }
+    @media (max-width: 768px) { .bg-about::before, .bg-signature::before, .bg-reservation::before { background-attachment: scroll; } .img-divider { height: 120px; } }
+ 
