@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | The Rihla Lounge</title>
+  <meta name="description" content="Explore The Rihla Lounge menu, featuring Afghani, Bengali, and international dishes in Uttara, Dhaka.">
+  <link rel="icon" type="image/png" href="https://i.ibb.co/4nXE5pjM/Rihla-Logo-no-BG.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600;700&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: { 50: '#FDF8E8', 100: '#F9EDC4', 200: '#F0D98A', 300: '#E8C547', 400: '#D4AF37', 500: '#C8A951', 600: '#B8942E', 700: '#96751F', 800: '#6B5416', 900: '#3D300D' },
+            dark: { 50: '#2A2A2A', 100: '#1F1F1F', 200: '#1A1A1A', 300: '#151515', 400: '#111111', 500: '#0D0D0D', 600: '#0A0A0A', 700: '#070707', 800: '#050505', 900: '#030303' }
+          },
+          fontFamily: { display: ['Playfair Display', 'serif'], body: ['DM Sans', 'sans-serif'], arabic: ['Amiri', 'serif'] }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 nav-scrolled">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="index.html" class="flex items-center group">
+        <div class="w-10 h-10 rounded-full border border-gold-500/50 flex items-center justify-center group-hover:border-gold-400 transition-colors">
+          <span class="font-arabic text-gold-400 text-lg leading-none">رحلة</span>
+        </div>
+        <div class="ml-3">
+          <span class="font-display text-lg font-semibold tracking-wide text-white">The Rihla</span>
+          <span class="block text-[10px] uppercase tracking-[0.2em] text-gold-500/70 -mt-0.5">Lounge</span>
+        </div>
+      </a>
+      <a href="index.html" class="btn-gold px-6 py-2.5 rounded-full text-sm">Back to Home</a>
+    </div>
+  </nav>
+
+  <main class="pt-20">
+    <section id="menu" class="relative py-16 md:py-24 min-h-screen">
+      <div class="absolute inset-0 arabian-pattern"></div>
+      <div class="relative z-10 max-w-5xl mx-auto px-6">
+        <header class="text-center mb-12">
+          <span class="text-xs uppercase tracking-[0.25em] text-gold-500/70 font-medium">Our Menu</span>
+          <div class="ornament-divider max-w-xs mx-auto mt-4 mb-6"><span class="iconify text-gold-500/50" data-icon="lucide:utensils" data-width="16"></span></div>
+          <h1 class="font-display text-3xl md:text-5xl font-semibold mb-4">A Curated <span class="gold-shimmer">Culinary Journey</span></h1>
+          <p class="text-neutral-500 text-sm md:text-base max-w-xl mx-auto mb-10">From sizzling grills to aromatic rice, every dish is crafted to take your taste buds on an unforgettable ride.</p>
+        </header>
+        <div class="flex flex-wrap justify-center gap-2 mb-10" id="menuTabs"></div>
+        <div id="menuContent" class="bg-dark-300/30 backdrop-blur-sm border border-white/5 rounded-2xl p-6 md:p-10"></div>
+        <p class="text-center text-neutral-700 text-xs mt-6 tracking-wide">Note: All prices are in BDT (৳) and are subject to applicable VAT &amp; Service Charge.</p>
+      </div>
+    </section>
+  </main>
+  <script src="main.js"></script>
+</body>
+</html>
