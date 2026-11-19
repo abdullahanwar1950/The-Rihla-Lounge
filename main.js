@@ -64,11 +64,12 @@
     // MENU RENDERING
     // ==========================================
     let activeTab = "All";
+    const menuSectionId = tabName => `menu-section-${tabName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
     function renderTabs() {
       const c = document.getElementById('menuTabs');
-      let h = `<button class="menu-tab active px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="All" aria-pressed="true" onclick="filterMenu('All')">All</button>`;
-      menuData.forEach(cat => { h += `<button class="menu-tab px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="${cat.tab}" aria-pressed="false" onclick="filterMenu('${cat.tab}')">${cat.tab}</button>`; });
-      h += `<button class="menu-tab px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="Chef" aria-pressed="false" onclick="showChefProfile()">Meet Our Chef</button>`;
+      let h = `<button class="menu-tab active px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="All" aria-controls="menuContent" aria-pressed="true" onclick="navigateToMenuSection('All')">All</button>`;
+      menuData.forEach(cat => { h += `<button class="menu-tab px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="${cat.tab}" aria-controls="${menuSectionId(cat.tab)}" aria-pressed="false" onclick="navigateToMenuSection('${cat.tab}')">${cat.tab}</button>`; });
+      h += `<button class="menu-tab px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="Chef" aria-controls="menu-section-chef" aria-pressed="false" onclick="navigateToMenuSection('Chef')">Meet Our Chef</button>`;
       c.innerHTML = h;
     }
     function setActiveMenuTab(tabName) {
@@ -78,24 +79,17 @@
         btn.setAttribute('aria-pressed', String(isActive));
       });
     }
-    function filterMenu(tabName) {
-      activeTab = tabName;
-      setActiveMenuTab(tabName);
-      renderMenu();
-    }
-    function showChefProfile() {
-      activeTab = "Chef";
-      setActiveMenuTab(activeTab);
-      document.getElementById('menuContent').innerHTML = `<section class="text-center py-8 md:py-12" aria-labelledby="chefName"><span class="text-xs uppercase tracking-[0.2em] text-gold-500/70">Meet Our Chef</span><h2 id="chefName" class="font-display text-3xl md:text-4xl font-semibold text-gold-400 mt-4 mb-5">Pranay Gomes</h2><p class="text-neutral-400 text-sm md:text-base max-w-lg mx-auto">Chef biography and portrait coming soon.</p></section>`;
-      updateMenuProgress();
+    function navigateToMenuSection(tabName) {
+      const targetId = tabName === "All" ? "menu" : tabName === "Chef" ? "menu-section-chef" : menuSectionId(tabName);
+      const target = document.getElementById(targetId);
+      if(target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
     }
     function renderMenu() {
       const c = document.getElementById('menuContent');
       let h = '';
-      const data = activeTab === "All" ? menuData : menuData.filter(cat => cat.tab === activeTab);
-      data.forEach((cat, ci) => {
-        h += `<div class="mb-10 last:mb-0 ${ci>0?'pt-10 border-t border-white/5':''}">`;
-        h += `<h3 class="font-display text-xl md:text-2xl font-semibold text-gold-400 mb-6">${cat.tab}</h3>`;
+      menuData.forEach((cat, ci) => {
+        h += `<section id="${menuSectionId(cat.tab)}" data-menu-section="${cat.tab}" class="menu-category ${ci>0?'pt-10 border-t border-white/5':''}" aria-labelledby="${menuSectionId(cat.tab)}-heading">`;
+        h += `<h2 id="${menuSectionId(cat.tab)}-heading" class="font-display text-xl md:text-2xl font-semibold text-gold-400 mb-6">${cat.tab}</h2>`;
         cat.subCategories.forEach(sub => {
           h += `<div class="mb-8 last:mb-0">`;
           if(cat.subCategories.length>1||sub.name!==cat.tab) h += `<h4 class="text-xs uppercase tracking-[0.2em] text-neutral-600 font-medium mb-4 pb-2 border-b border-white/5">${sub.name}</h4>`;
@@ -110,8 +104,9 @@
           });
           h += `</div></div>`;
         });
-        h += `</div>`;
+        h += `</section>`;
       });
+      h += `<section id="menu-section-chef" data-menu-section="Chef" class="menu-category pt-10 border-t border-white/5 text-center py-8 md:py-12" aria-labelledby="chefName"><span class="text-xs uppercase tracking-[0.2em] text-gold-500/70">Meet Our Chef</span><h2 id="chefName" class="font-display text-3xl md:text-4xl font-semibold text-gold-400 mt-4 mb-5">Pranay Gomes</h2><p class="text-neutral-400 text-sm md:text-base max-w-lg mx-auto">Chef biography and portrait coming soon.</p></section>`;
       c.innerHTML = h;
       updateMenuProgress();
     }
@@ -126,6 +121,17 @@
       const percent = scrollableHeight > 0 ? Math.min(100, Math.max(0, window.scrollY / scrollableHeight * 100)) : 0;
       bar.style.width = `${percent}%`;
       progress.setAttribute('aria-valuenow', String(Math.round(percent)));
+      const sections = document.querySelectorAll('[data-menu-section]');
+      let currentTab = "All";
+      const viewingMarker = Math.min(220, window.innerHeight * 0.3);
+      sections.forEach(section => {
+        if(section.getBoundingClientRect().top <= viewingMarker) currentTab = section.dataset.menuSection;
+      });
+      if(scrollableHeight > 0 && window.scrollY >= scrollableHeight - 2) currentTab = "Chef";
+      if(currentTab !== activeTab) {
+        activeTab = currentTab;
+        setActiveMenuTab(activeTab);
+      }
     }
     if(document.getElementById('readingProgress')) {
       window.addEventListener('scroll', updateMenuProgress, {passive: true});
