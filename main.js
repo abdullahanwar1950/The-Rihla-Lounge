@@ -99,9 +99,25 @@
         h += `</div>`;
       });
       c.innerHTML = h;
+      updateMenuProgress();
     }
     function toggleExpand(btn) { const c=btn.parentElement.nextElementSibling; c.classList.toggle('open'); btn.classList.toggle('active'); }
     if(document.getElementById('menuTabs')&&document.getElementById('menuContent')){renderTabs();renderMenu();}
+
+    function updateMenuProgress() {
+      const progress = document.getElementById('readingProgress');
+      const bar = document.getElementById('readingProgressBar');
+      if(!progress||!bar)return;
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = scrollableHeight > 0 ? Math.min(100, Math.max(0, window.scrollY / scrollableHeight * 100)) : 0;
+      bar.style.width = `${percent}%`;
+      progress.setAttribute('aria-valuenow', String(Math.round(percent)));
+    }
+    if(document.getElementById('readingProgress')) {
+      window.addEventListener('scroll', updateMenuProgress, {passive: true});
+      window.addEventListener('resize', updateMenuProgress);
+      updateMenuProgress();
+    }
 
     // ==========================================
     // NAV, COUNTDOWN, PARTICLES, FORM
