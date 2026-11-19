@@ -67,10 +67,16 @@
     const menuSectionId = tabName => `menu-section-${tabName.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
     function renderTabs() {
       const c = document.getElementById('menuTabs');
-      let h = `<button class="menu-tab active px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="All" aria-controls="menuContent" aria-pressed="true" onclick="navigateToMenuSection('All')">All</button>`;
-      menuData.forEach(cat => { h += `<button class="menu-tab px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="${cat.tab}" aria-controls="${menuSectionId(cat.tab)}" aria-pressed="false" onclick="navigateToMenuSection('${cat.tab}')">${cat.tab}</button>`; });
-      h += `<button class="menu-tab px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="Chef" aria-controls="menu-section-chef" aria-pressed="false" onclick="navigateToMenuSection('Chef')">Meet Our Chef</button>`;
+      let h = `<button class="menu-tab flex-shrink-0 whitespace-nowrap active px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="All" aria-controls="menuContent" aria-pressed="true" onclick="navigateToMenuSection('All')">All</button>`;
+      menuData.forEach(cat => { h += `<button class="menu-tab flex-shrink-0 whitespace-nowrap px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="${cat.tab}" aria-controls="${menuSectionId(cat.tab)}" aria-pressed="false" onclick="navigateToMenuSection('${cat.tab}')">${cat.tab}</button>`; });
+      h += `<button class="menu-tab flex-shrink-0 whitespace-nowrap px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="Chef" aria-controls="menu-section-chef" aria-pressed="false" onclick="navigateToMenuSection('Chef')">Meet Our Chef</button>`;
       c.innerHTML = h;
+      c.addEventListener('wheel', event => {
+        if(Math.abs(event.deltaY) > Math.abs(event.deltaX) && c.scrollWidth > c.clientWidth) {
+          c.scrollLeft += event.deltaY;
+          event.preventDefault();
+        }
+      }, {passive: false});
     }
     function setActiveMenuTab(tabName) {
       document.querySelectorAll('.menu-tab').forEach(btn => {
@@ -83,6 +89,14 @@
       const targetId = tabName === "All" ? "menu" : tabName === "Chef" ? "menu-section-chef" : menuSectionId(tabName);
       const target = document.getElementById(targetId);
       if(target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
+      const tab = document.querySelector(`[data-menu-tab="${tabName}"]`);
+      if(tab) {
+        const container = document.getElementById('menuTabs');
+        const tabRect = tab.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        if(tabRect.left < containerRect.left) container.scrollBy({left: tabRect.left - containerRect.left, behavior: 'smooth'});
+        else if(tabRect.right > containerRect.right) container.scrollBy({left: tabRect.right - containerRect.right, behavior: 'smooth'});
+      }
     }
     function renderMenu() {
       const c = document.getElementById('menuContent');
