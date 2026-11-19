@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Rihla (رحلة) Lounge | Where Taste Meets Emotion</title>
-  <meta name="description" content="A luxury lounge experience combining authentic Afghani flavours with Bangladeshi culinary influences. Grand Opening 7 August, Uttara, Dhaka.">
+  <meta name="description" content="A luxury lounge experience combining authentic Afghani flavours with Bangladeshi culinary influences. Grand Opening December 1, 2026, Uttara, Dhaka.">
   <link rel="icon" type="image/png" href="https://i.ibb.co/4nXE5pjM/Rihla-Logo-no-BG.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -136,7 +136,7 @@
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20">
       <div class="reveal inline-flex items-center gap-2.5 px-5 py-2 rounded-full border border-gold-500/20 bg-gold-500/5 backdrop-blur-md mb-8">
         <span class="w-2 h-2 rounded-full bg-gold-400 pulse-dot"></span>
-        <span class="text-xs uppercase tracking-[0.2em] text-gold-400 font-medium">Grand Opening — 7 August</span>
+        <span class="text-xs uppercase tracking-[0.2em] text-gold-400 font-medium">Grand Opening — December 1, 2026</span>
       </div>
       <p class="reveal reveal-delay-1 font-arabic text-4xl md:text-5xl text-gold-500/30 mb-4">رحلة</p>
       <h1 class="reveal reveal-delay-1 font-display text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-[1.05] mb-6">
@@ -296,7 +296,7 @@
           <div class="reveal reveal-delay-2 space-y-6">
             <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-gold-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-400" data-icon="lucide:map-pin" data-width="18"></span></div><div><h4 class="text-sm font-semibold text-white mb-1">Address</h4><p class="text-neutral-400 text-sm leading-relaxed">6th Avenue, Plot-20<br>Uttara Sector 17, Dhaka</p></div></div>
             <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-gold-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-400" data-icon="lucide:clock" data-width="18"></span></div><div><h4 class="text-sm font-semibold text-white mb-1">Opening Hours</h4><p class="text-neutral-400 text-sm">12:00 PM – 2:00 AM</p></div></div>
-            <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-gold-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-400" data-icon="lucide:calendar" data-width="18"></span></div><div><h4 class="text-sm font-semibold text-white mb-1">Grand Opening</h4><p class="text-gold-400 text-sm font-medium">7 August</p></div></div>
+            <div class="flex items-start gap-4"><div class="w-10 h-10 rounded-xl bg-gold-500/10 flex items-center justify-center flex-shrink-0 mt-0.5"><span class="iconify text-gold-400" data-icon="lucide:calendar" data-width="18"></span></div><div><h4 class="text-sm font-semibold text-white mb-1">Grand Opening</h4><p class="text-gold-400 text-sm font-medium">December 1, 2026</p></div></div>
           </div>
           <div class="reveal reveal-delay-3 mt-10 pt-8 border-t border-white/5">
             <p class="text-xs uppercase tracking-widest text-neutral-600 mb-4">Follow Our Journey</p>
@@ -367,7 +367,7 @@
           <ul class="space-y-4">
             <li class="flex items-start gap-3"><span class="iconify text-gold-500/50 mt-0.5 flex-shrink-0" data-icon="lucide:map-pin" data-width="15"></span><span class="text-sm text-neutral-400">6th Avenue, Plot-20, Uttara Sector 17, Dhaka</span></li>
             <li class="flex items-start gap-3"><span class="iconify text-gold-500/50 mt-0.5 flex-shrink-0" data-icon="lucide:clock" data-width="15"></span><span class="text-sm text-neutral-400">12:00 PM – 2:00 AM</span></li>
-            <li class="flex items-start gap-3"><span class="iconify text-gold-500/50 mt-0.5 flex-shrink-0" data-icon="lucide:calendar" data-width="15"></span><span class="text-sm text-neutral-400">Grand Opening: 7 August</span></li>
+            <li class="flex items-start gap-3"><span class="iconify text-gold-500/50 mt-0.5 flex-shrink-0" data-icon="lucide:calendar" data-width="15"></span><span class="text-sm text-neutral-400">Grand Opening: December 1, 2026</span></li>
           </ul>
         </div>
       </div>
