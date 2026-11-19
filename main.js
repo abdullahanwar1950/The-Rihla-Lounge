@@ -85,18 +85,29 @@
         btn.setAttribute('aria-pressed', String(isActive));
       });
     }
+    function centerMenuTab(tabName, behavior = 'smooth') {
+      const container = document.getElementById('menuTabs');
+      const tab = container?.querySelector(`[data-menu-tab="${tabName}"]`);
+      if(!container||!tab)return;
+      const firstTab = container.firstElementChild;
+      const lastTab = container.lastElementChild;
+      if(firstTab&&lastTab) {
+        const style = getComputedStyle(container);
+        firstTab.style.marginLeft = `${Math.max(0, (container.clientWidth - firstTab.getBoundingClientRect().width) / 2 - parseFloat(style.paddingLeft))}px`;
+        lastTab.style.marginRight = `${Math.max(0, (container.clientWidth - lastTab.getBoundingClientRect().width) / 2 - parseFloat(style.paddingRight))}px`;
+      }
+      const containerRect = container.getBoundingClientRect();
+      const tabRect = tab.getBoundingClientRect();
+      container.scrollTo({
+        left: container.scrollLeft + tabRect.left + tabRect.width / 2 - (containerRect.left + container.clientWidth / 2),
+        behavior
+      });
+    }
     function navigateToMenuSection(tabName) {
       const targetId = tabName === "All" ? "menu" : tabName === "Chef" ? "menu-section-chef" : menuSectionId(tabName);
       const target = document.getElementById(targetId);
       if(target) target.scrollIntoView({behavior: 'smooth', block: 'start'});
-      const tab = document.querySelector(`[data-menu-tab="${tabName}"]`);
-      if(tab) {
-        const container = document.getElementById('menuTabs');
-        const tabRect = tab.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        if(tabRect.left < containerRect.left) container.scrollBy({left: tabRect.left - containerRect.left, behavior: 'smooth'});
-        else if(tabRect.right > containerRect.right) container.scrollBy({left: tabRect.right - containerRect.right, behavior: 'smooth'});
-      }
+      centerMenuTab(tabName);
     }
     function renderMenu() {
       const c = document.getElementById('menuContent');
@@ -145,11 +156,23 @@
       if(currentTab !== activeTab) {
         activeTab = currentTab;
         setActiveMenuTab(activeTab);
+        centerMenuTab(activeTab);
       }
     }
     if(document.getElementById('readingProgress')) {
+      const recenterActiveTab = () => requestAnimationFrame(() => requestAnimationFrame(() => centerMenuTab(activeTab, 'auto')));
       window.addEventListener('scroll', updateMenuProgress, {passive: true});
-      window.addEventListener('resize', updateMenuProgress);
+      window.addEventListener('resize', () => {
+        const firstTab = document.querySelector('#menuTabs .menu-tab:first-child');
+        const lastTab = document.querySelector('#menuTabs .menu-tab:last-child');
+        if(firstTab) firstTab.style.marginLeft = '';
+        if(lastTab) lastTab.style.marginRight = '';
+        updateMenuProgress();
+        recenterActiveTab();
+      });
+      centerMenuTab(activeTab, 'auto');
+      window.addEventListener('load', recenterActiveTab, {once: true});
+      document.fonts.ready.then(recenterActiveTab);
       updateMenuProgress();
     }
 
