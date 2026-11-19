@@ -66,14 +66,28 @@
     let activeTab = "All";
     function renderTabs() {
       const c = document.getElementById('menuTabs');
-      let h = `<button class="menu-tab active px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" onclick="filterMenu('All')">All</button>`;
-      menuData.forEach(cat => { h += `<button class="menu-tab px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" onclick="filterMenu('${cat.tab}')">${cat.tab}</button>`; });
+      let h = `<button class="menu-tab active px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="All" aria-pressed="true" onclick="filterMenu('All')">All</button>`;
+      menuData.forEach(cat => { h += `<button class="menu-tab px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="${cat.tab}" aria-pressed="false" onclick="filterMenu('${cat.tab}')">${cat.tab}</button>`; });
+      h += `<button class="menu-tab px-4 py-2 rounded-full text-xs uppercase tracking-wider font-medium" data-menu-tab="Chef" aria-pressed="false" onclick="showChefProfile()">Meet Our Chef</button>`;
       c.innerHTML = h;
+    }
+    function setActiveMenuTab(tabName) {
+      document.querySelectorAll('.menu-tab').forEach(btn => {
+        const isActive = btn.dataset.menuTab === tabName;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
+      });
     }
     function filterMenu(tabName) {
       activeTab = tabName;
-      document.querySelectorAll('.menu-tab').forEach(btn => { btn.classList.remove('active'); if(btn.textContent.trim()===tabName){ btn.classList.add('active'); }});
+      setActiveMenuTab(tabName);
       renderMenu();
+    }
+    function showChefProfile() {
+      activeTab = "Chef";
+      setActiveMenuTab(activeTab);
+      document.getElementById('menuContent').innerHTML = `<section class="text-center py-8 md:py-12" aria-labelledby="chefName"><span class="text-xs uppercase tracking-[0.2em] text-gold-500/70">Meet Our Chef</span><h2 id="chefName" class="font-display text-3xl md:text-4xl font-semibold text-gold-400 mt-4 mb-5">Pranay Gomes</h2><p class="text-neutral-400 text-sm md:text-base max-w-lg mx-auto">Chef biography and portrait coming soon.</p></section>`;
+      updateMenuProgress();
     }
     function renderMenu() {
       const c = document.getElementById('menuContent');
