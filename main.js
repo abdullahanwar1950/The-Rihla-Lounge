@@ -101,7 +101,7 @@
       c.innerHTML = h;
     }
     function toggleExpand(btn) { const c=btn.parentElement.nextElementSibling; c.classList.toggle('open'); btn.classList.toggle('active'); }
-    renderTabs(); renderMenu();
+    if(document.getElementById('menuTabs')&&document.getElementById('menuContent')){renderTabs();renderMenu();}
 
     // ==========================================
     // NAV, COUNTDOWN, PARTICLES, FORM
